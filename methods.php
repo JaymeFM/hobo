@@ -1,14 +1,27 @@
 <?php
-class database_con{
-    function db_con($hostname, $username, $password, $database_name){
-        $connection = new mysqli($hostname, $username, $password, $database_name);
+class Database {
+    public $connection;
+    public $hostname;
+    public $username;
+    public $password;
+    public $database_name;
 
-        if ($connection->connect_error) {
-            die("Connection failed: " . $connection->connect_error);
+    function __construct($hostname, $username, $password, $database_name) {
+        $this->hostname = $hostname;
+        $this->username = $username;
+        $this->password = $password;
+        $this->database_name = $database_name;
 
+        
+        $this->connection = new mysqli($this->hostname, $this->username, $this->password, $this->database_name);
+
+        if ($this->connection->connect_error) {
+            die("Connection failed: " . $this->connection->connect_error);
+        } 
+        echo "Connected successfully";
     }
-    echo "Connected successfully";
-    return $connection;
+    function closeConnection() {
+        $this->connection->close();
+    }
 }
-
-?>  
+?>
