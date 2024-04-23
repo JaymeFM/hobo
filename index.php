@@ -3,20 +3,6 @@ require_once('methods.php');
 
 $database = new database("localhost", "root", "", "hobo");
 
-
-$sql = "SELECT * FROM users";
-$result = $database->connection->query($sql);
-
-// Check if there are any rows returned
-if ($result->num_rows > 0) {
-    // Output data of each row
-    while($row = $result->fetch_assoc()) {
-        echo "ID: " . $row["id"]. " - Name: " . $row["name"]. "<br>";
-    }
-} else {
-    echo "0 results";
-}
-
 ?>
 
 

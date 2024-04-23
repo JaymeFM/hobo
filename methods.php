@@ -1,4 +1,5 @@
 <?php
+
 class Database {
     public $connection;
     public $hostname;
@@ -12,16 +13,21 @@ class Database {
         $this->password = $password;
         $this->database_name = $database_name;
 
-        
-        $this->connection = new mysqli($this->hostname, $this->username, $this->password, $this->database_name);
-
-        if ($this->connection->connect_error) {
-            die("Connection failed: " . $this->connection->connect_error);
-        } 
-        echo "Connected successfully";
+        try {
+            
+            $dsn = "mysql:host={$this->hostname};dbname={$this->database_name}";
+            $this->connection = new PDO($dsn, $this->username, $this->password);
+            $this->connection->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+            echo "Connected successfully";
+        } catch (PDOException $e) {
+            die("Connection failed: " . $e->getMessage());
+        }
     }
+
     function closeConnection() {
-        $this->connection->close();
+        $this->connection = null;
     }
 }
+
 ?>
+
