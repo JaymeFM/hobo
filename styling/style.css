@@ -1,0 +1,36 @@
+*{
+    padding: 0;
+    margin: 0;
+}
+
+header{
+    display: flex;
+    justify-content: space-between;
+}
+
+#logo {
+    width: 12vw;
+    height: 8vh;
+}
+
+#zoek {
+    width: 3vw;
+    height: 6vh;
+    padding-top: 1.3vh;
+    padding-right: 1vw; 
+}
+
+#inlog {
+    width: 3vw;
+    height: 6vh;
+    padding-right: 1vw;
+}
+
+#myVideo {
+    position: fixed;
+    right: 0;
+    bottom: 0;
+    min-width: 100%;
+    min-height: 100%;
+    z-index: -1;
+}
