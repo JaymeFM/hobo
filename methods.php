@@ -29,5 +29,9 @@ class Database {
     }
 }
 
+function searchItems($database,$searchQuary){
+
+}
+
 ?>
 

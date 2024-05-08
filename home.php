@@ -8,10 +8,10 @@
 </head>
 <body>
     <header>
-        <a href="home.html"><img src="images/HOBO_logo.png" id="logo"></a>
+        <a href="home.php"><img src="images/HOBO_logo.png" id="logo"></a>
         <div class="nav">
-            <a href="zoek.html"><img src="images/imageedit_7_4079119959.png" id="zoek"></a>
-            <a href="profiel.html"><img src="images/imageedit_4_9934679820.png" id="inlog"></a>
+            <a href="zoek.php"><img src="images/imageedit_7_4079119959.png" id="zoek"></a>
+            <a href="profiel.php"><img src="images/imageedit_4_9934679820.png" id="inlog"></a>
         </div>
     </header>
     <video autoplay muted loop id="myVideo">
