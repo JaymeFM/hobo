@@ -29,7 +29,7 @@ class Database {
     }
 }
 
-function searchItems($database,$searchQuary){
+function searchItems($database,$name_quary,$genre_quary,$releaseDate_quary,$rating_quary){
 
 }
 
