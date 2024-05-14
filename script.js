@@ -134,7 +134,7 @@ const initSlider1 = () => {
     // Slide images according to the slide button clicks
     slideButtons.forEach(button => {
       button.addEventListener("click", () => {
-        const direction = button.id === "prev-slide1" ? -1 : 1;
+        const direction = button.id === "prev-slide1" ? -0.5 : 0.5;
         const scrollAmount = imageList.clientWidth * direction;
         imageList.scrollBy({ left: scrollAmount, behavior: "smooth" });
       });
@@ -196,7 +196,7 @@ const initSlider1 = () => {
     // Slide images according to the slide button clicks
     slideButtons.forEach(button => {
       button.addEventListener("click", () => {
-        const direction = button.id === "prev-slide2" ? -1 : 1;
+        const direction = button.id === "prev-slide2" ? -0.5 : 0.5;
         const scrollAmount = imageList.clientWidth * direction;
         imageList.scrollBy({ left: scrollAmount, behavior: "smooth" });
       });
