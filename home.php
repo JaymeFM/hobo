@@ -114,32 +114,32 @@
     
 
     <div class="container2">
-  <h1 id="title">Trending</h1>
+  <h1 id="title2">Action</h1>
   <div class="slider-wrapper2">
     <button id="prev-slide2" class="slide-button2 material-symbols-rounded2">
       &lt;
     </button>
     <ul class="image-list2">
-          <img class="image-item2" src="posters/00001.jpg" alt="img-1" />
-          <img class="image-item2" src="posters/00002.jpg" alt="img-2" />
-          <img class="image-item2" src="posters/00003.jpg" alt="img-3" />
-          <img class="image-item2" src="posters/00004.jpg" alt="img-4" />
-          <img class="image-item2" src="posters/00005.jpg" alt="img-5" />
-          <img class="image-item2" src="posters/00006.jpg" alt="img-6" />
-          <img class="image-item2" src="posters/00011.jpg" alt="img-7" />
-          <img class="image-item2" src="posters/00032.jpg" alt="img-8" />
-          <img class="image-item2" src="posters/00033.jpg" alt="img-9" />
-          <img class="image-item2" src="posters/00034.jpg" alt="img-10" />
-          <img class="image-item2" src="posters/00035.jpg" alt="img-11" />
-          <img class="image-item2" src="posters/00036.jpg" alt="img-12" />
-          <img class="image-item2" src="posters/00044.jpg" alt="img-13" />
-          <img class="image-item2" src="posters/00046.jpg" alt="img-14" />
-          <img class="image-item2" src="posters/00048.jpg" alt="img-15" />
-          <img class="image-item2" src="posters/00064.jpg" alt="img-16" />
-          <img class="image-item2" src="posters/00065.jpg" alt="img-17" />
-          <img class="image-item2" src="posters/00066.jpg" alt="img-18" />
-          <img class="image-item2" src="posters/00069.jpg" alt="img-19" />
-          <img class="image-item2" src="posters/00072.jpg" alt="img-20" />
+          <img class="image-item2" src="posters/00225.jpg" alt="img-1" />
+          <img class="image-item2" src="posters/00228.jpg" alt="img-2" />
+          <img class="image-item2" src="posters/00229.jpg" alt="img-3" />
+          <img class="image-item2" src="posters/00232.jpg" alt="img-4" />
+          <img class="image-item2" src="posters/00234.jpg" alt="img-5" />
+          <img class="image-item2" src="posters/00236.jpg" alt="img-6" />
+          <img class="image-item2" src="posters/00252.jpg" alt="img-7" />
+          <img class="image-item2" src="posters/00253.jpg" alt="img-8" />
+          <img class="image-item2" src="posters/00254.jpg" alt="img-9" />
+          <img class="image-item2" src="posters/00256.jpg" alt="img-10" />
+          <img class="image-item2" src="posters/00257.jpg" alt="img-11" />
+          <img class="image-item2" src="posters/00260.jpg" alt="img-12" />
+          <img class="image-item2" src="posters/00262.jpg" alt="img-13" />
+          <img class="image-item2" src="posters/00265.jpg" alt="img-14" />
+          <img class="image-item2" src="posters/00266.jpg" alt="img-15" />
+          <img class="image-item2" src="posters/00269.jpg" alt="img-16" />
+          <img class="image-item2" src="posters/00276.jpg" alt="img-17" />
+          <img class="image-item2" src="posters/00278.jpg" alt="img-18" />
+          <img class="image-item2" src="posters/00315.jpg" alt="img-19" />
+          <img class="image-item2" src="posters/00322.jpg" alt="img-20" />
         </ul>
     <button id="next-slide2" class="slide-button2 material-symbols-rounded2">
       &gt;
@@ -151,6 +151,150 @@
     </div>
   </div>
 </div>
+
+<div class="container3">
+  <h1 id="title">Romance</h1>
+  <div class="slider-wrapper3">
+    <button id="prev-slide3" class="slide-button3 material-symbols-rounded3">
+      &lt;
+    </button>
+    <ul class="image-list3">
+          <img class="image-item3" src="posters/00324.jpg" alt="img-1" />
+          <img class="image-item3" src="posters/00325.jpg" alt="img-2" />
+          <img class="image-item3" src="posters/00328.jpg" alt="img-3" />
+          <img class="image-item3" src="posters/00343.jpg" alt="img-4" />
+          <img class="image-item3" src="posters/00356.jpg" alt="img-5" />
+          <img class="image-item3" src="posters/00370.jpg" alt="img-6" />
+          <img class="image-item3" src="posters/00377.jpg" alt="img-7" />
+          <img class="image-item3" src="posters/00379.jpg" alt="img-8" />
+          <img class="image-item3" src="posters/00380.jpg" alt="img-9" />
+          <img class="image-item3" src="posters/00383.jpg" alt="img-10" />
+          <img class="image-item3" src="posters/00385.jpg" alt="img-11" />
+          <img class="image-item3" src="posters/00388.jpg" alt="img-12" />
+          <img class="image-item3" src="posters/00389.jpg" alt="img-13" />
+          <img class="image-item3" src="posters/00392.jpg" alt="img-14" />
+          <img class="image-item3" src="posters/00396.jpg" alt="img-15" />
+          <img class="image-item3" src="posters/00397.jpg" alt="img-16" />
+          <img class="image-item3" src="posters/00401.jpg" alt="img-17" />
+          <img class="image-item3" src="posters/00407.jpg" alt="img-18" />
+          <img class="image-item3" src="posters/00430.jpg" alt="img-19" />
+          <img class="image-item3" src="posters/00493.jpg" alt="img-20" />
+        </ul>
+    <button id="next-slide3" class="slide-button3 material-symbols-rounded3">
+      &gt;
+    </button>
+  </div>
+  <div class="slider-scrollbar3">
+    <div class="scrollbar-track3">
+      <div class="scrollbar-thumb3"></div>
+    </div>
+  </div>
+</div>
+
+
+
+<section class= genres>
+        <div class=genre><img src="images\a5f5b6df-8c43-4d82-ac01-60d4e78ccc45.jpg" alt=""></div>
+        <div class=genre><img src="images\d890518a-c76e-419b-9392-2b3602e2e159.jpg" alt=""></div>
+        <div class=genre><img src="images/4afa340f-20a1-4bd8-873f-949d8fc03321.jpg" alt=""></div>
+        <div class=genre><img src="images/e454a029-9080-4241-892d-f21f46ca6893.jpg" alt=""></div>
+    </section>
+
+
+
+    <div class="container4">
+  <h1 id="title">Fantasy</h1>
+  <div class="slider-wrapper4">
+    <button id="prev-slide4" class="slide-button4 material-symbols-rounded4">
+      &lt;
+    </button>
+    <ul class="image-list4">
+      <img class="image-item4" src="posters/00495.jpg" alt="img-1" />
+      <img class="image-item4" src="posters/00497.jpg" alt="img-2" />
+      <img class="image-item4" src="posters/00499.jpg" alt="img-3" />
+      <img class="image-item4" src="posters/00517.jpg" alt="img-4" />
+      <img class="image-item4" src="posters/00518.jpg" alt="img-5" />
+      <img class="image-item4" src="posters/00519.jpg" alt="img-6" />
+      <img class="image-item4" src="posters/00520.jpg" alt="img-7" />
+      <img class="image-item4" src="posters/00521.jpg" alt="img-8" />
+      <img class="image-item4" src="posters/00522.jpg" alt="img-9" />
+      <img class="image-item4" src="posters/00523.jpg" alt="img-10" />
+      <img class="image-item4" src="posters/00529.jpg" alt="img-11" />
+      <img class="image-item4" src="posters/00531.jpg" alt="img-12" />
+      <img class="image-item4" src="posters/00539.jpg" alt="img-13" />
+      <img class="image-item4" src="posters/00541.jpg" alt="img-14" />
+      <img class="image-item4" src="posters/00542.jpg" alt="img-15" />
+      <img class="image-item4" src="posters/00568.jpg" alt="img-16" />
+      <img class="image-item4" src="posters/00581.jpg" alt="img-17" />
+      <img class="image-item4" src="posters/00596.jpg" alt="img-18" />
+      <img class="image-item4" src="posters/00602.jpg" alt="img-19" />
+      <img class="image-item4" src="posters/00604.jpg" alt="img-20" />
+    </ul>
+    <button id="next-slide4" class="slide-button4 material-symbols-rounded4">
+      &gt;
+    </button>
+  </div>
+  <div class="slider-scrollbar4">
+    <div class="scrollbar-track4">
+      <div class="scrollbar-thumb4"></div>
+    </div>
+  </div>
+</div>
+
+<div class="container5">
+  <h1 id="title">Sci-Fi</h1>
+  <div class="slider-wrapper5">
+    <button id="prev-slide5" class="slide-button5 material-symbols-rounded5">
+      &lt;
+    </button>
+    <ul class="image-list5">
+      <img class="image-item5" src="posters/00001.jpg" alt="img-1" />
+      <img class="image-item5" src="posters/00002.jpg" alt="img-2" />
+      <img class="image-item5" src="posters/00003.jpg" alt="img-3" />
+      <img class="image-item5" src="posters/00004.jpg" alt="img-4" />
+      <img class="image-item5" src="posters/00005.jpg" alt="img-5" />
+      <img class="image-item5" src="posters/00006.jpg" alt="img-6" />
+      <img class="image-item5" src="posters/00011.jpg" alt="img-7" />
+      <img class="image-item5" src="posters/00032.jpg" alt="img-8" />
+      <img class="image-item5" src="posters/00033.jpg" alt="img-9" />
+      <img class="image-item5" src="posters/00034.jpg" alt="img-10" />
+      <img class="image-item5" src="posters/00035.jpg" alt="img-11" />
+      <img class="image-item5" src="posters/00036.jpg" alt="img-12" />
+      <img class="image-item5" src="posters/00044.jpg" alt="img-13" />
+      <img class="image-item5" src="posters/00046.jpg" alt="img-14" />
+      <img class="image-item5" src="posters/00048.jpg" alt="img-15" />
+      <img class="image-item5" src="posters/00064.jpg" alt="img-16" />
+      <img class="image-item5" src="posters/00065.jpg" alt="img-17" />
+      <img class="image-item5" src="posters/00066.jpg" alt="img-18" />
+      <img class="image-item5" src="posters/00069.jpg" alt="img-19" />
+      <img class="image-item5" src="posters/00072.jpg" alt="img-20" />
+    </ul>
+    <button id="next-slide5" class="slide-button5 material-symbols-rounded5">
+      &gt;
+    </button>
+  </div>
+  <div class="slider-scrollbar5">
+    <div class="scrollbar-track5">
+      <div class="scrollbar-thumb5"></div>
+    </div>
+  </div>
+</div>
+
+
+
+  <footer class="footer">
+  <div class="footer-container">
+    <div class="footer-links">
+      <a href="#">Help</a>
+      <a href="#">Privacy</a>
+      <a href="#">Info</a>
+      <a href="#">FAQ</a>
+    </div>
+    <div class="copyright">
+      <p>&copy; 2024 Hobo. All rights reserved.</p>
+    </div>
+  </div>
+</footer>
 
 </body>
 </html>
