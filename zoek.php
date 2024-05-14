@@ -18,11 +18,32 @@
     <h2>Search</h2>
 <form method="post" action="search.php">
     <input type="text" name="query" placeholder="search on name">
-    <input type="text" name="query" placeholder="search on genre">
-    <input type="text" name="query" placeholder="search on release date">
-    <input type="text" name="query" placeholder="search on rating">
     <button type="submit">Search</button>
 </form>
+
+<div class="trending">
+        <h1 id="title">Trending</h1>
+        <div class="posters-container">
+            <div class="poster">
+                <img src="posters/00001.jpg" alt="Movie 1">
+            </div>
+            <div class="poster">
+                <img src="posters/00002.jpg" alt="Movie 2">
+            </div>
+            <div class="poster">
+                <img src="posters/00003.jpg" alt="Movie 3">
+            </div>
+            <div class="poster">
+                <img src="posters/00004.jpg" alt="Movie 4">
+            </div>
+            <div class="poster">
+                <img src="posters/00005.jpg" alt="Movie 5">
+            </div>
+            <div class="poster">
+                <img src="posters/00006.jpg" alt="Movie 6">
+            </div>
+        </div>
+    </div>
 
 </body>
 </html>
