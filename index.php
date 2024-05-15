@@ -1,5 +1,5 @@
 <?php
-require_once('methods.php');
+require_once "methods/database.php";
 
 $database = new database("localhost", "root", "", "hobo");
 

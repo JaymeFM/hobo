@@ -8,17 +8,16 @@ class Database {
     public $database_name;
 
     function __construct($hostname, $username, $password, $database_name) {
-        $this->hostname = $hostname;
-        $this->username = $username;
-        $this->password = $password;
-        $this->database_name = $database_name;
+        $this->hostname = "localhost";
+        $this->username = "root";
+        $this->password = "";
+        $this->database_name = "hobo";
 
         try {
             
             $dsn = "mysql:host={$this->hostname};dbname={$this->database_name}";
             $this->connection = new PDO($dsn, $this->username, $this->password);
             $this->connection->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-            echo "Connected successfully";
         } catch (PDOException $e) {
             die("Connection failed: " . $e->getMessage());
         }
@@ -29,9 +28,6 @@ class Database {
     }
 }
 
-function searchItems($database,$name_quary,$genre_quary,$releaseDate_quary,$rating_quary){
-
-}
 
 ?>
 
