@@ -18,8 +18,8 @@
     <div class="slider">
         <div class="slides">
             <img class="slide" src="images\971026bb-615c-47f6-879a-86a433adf5e5.jpg" alt="Image #1">
-            <img class="slide" src="images/banner.jpg" alt="Image #2">
-            <img class="slide" src="images/banner4.jpg" alt="Image #3">
+            <img class="slide" src="images\de61nd1-18cc918c-6ea3-420c-a853-23c6b1f3afcb.jpg" alt="Image #2">
+            <img class="slide" src="images\d59919fd-f99c-4c5d-8848-83fd18349bee.jpg" alt="Image #3">
         </div>
         <button class="prev" onclick="prevSlide()">&#10094</button>
         <button class="next" onclick="nextSlide()">&#10095</button>
@@ -33,7 +33,7 @@
         <button id="prev-slide" class="slide-button material-symbols-rounded">
         <</button>
         <ul class="image-list">
-          <img class="image-item" src="posters/00001.jpg" alt="img-1" />
+          <a a href="videotemplate.php"><img class="image-item" src="posters/00001.jpg" alt="img-1" /></a>
           <img class="image-item" src="posters/00002.jpg" alt="img-2" />
           <img class="image-item" src="posters/00003.jpg" alt="img-3" />
           <img class="image-item" src="posters/00004.jpg" alt="img-4" />
