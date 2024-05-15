@@ -16,17 +16,20 @@
         </div>
     </header>
 
+    <div class="temp">
     <div class="template">
-        <div class="template2">
+      <div class="template2">
         <h1 class="title">Title</h1>
         <p class="description">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quo atque qui quis architecto dignissimos minus vero tenetur! Reiciendis ea dignissimos, beatae reprehenderit quaerat asperiores, doloribus, praesentium qui est at quibusdam.</p>
-        </div>
-        <div class="template3">
+      </div>
+      <div class="template3">
         <p class="genre">Genre:</p>
         <p class="rating">Rating:</p>
         <button class="play"><i class="fa fa-play-circle"></i></button>
-        </div>
+      </div>
     </div>
+    <img src="posters\00001.jpg" alt="" class="poster-template">
+  </div>
 
 </body>
 </html>
