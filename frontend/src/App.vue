@@ -7,11 +7,11 @@ import { RouterLink, RouterView } from 'vue-router'
 </template>
 
 <style>
-/* body{
+body{
   font-family: 'Neutra Text TF', sans-serif;
   margin: 0;
   background-image: url("../wallpaper.png");
-} */
+}
 
 @import url('https://fonts.cdnfonts.com/css/neutra-text-tf');
 </style>
