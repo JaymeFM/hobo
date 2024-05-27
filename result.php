@@ -10,7 +10,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $results = searchItems($database->connection, $name_query);
     
     foreach ($results as $result) {
-        echo "<p>{$result['name']}</p>"; 
+        echo "<p>{$result['SerieTitel']}</p>"; 
     }
 }
 ?>
