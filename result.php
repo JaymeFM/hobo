@@ -5,12 +5,13 @@ include_once "methods/searchfunction.php";
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     
     $name_query = $_POST["name_query"];
-    
+    $genre_query = $_POST["genre_query"];
+
     $database = new Database($hostname, $username, $password, $database_name);
-    $results = searchItems($database->connection, $name_query);
+    $results = searchItems($database->connection, $name_query,$genre_query);
     
     foreach ($results as $result) {
-        echo "<p>{$result['SerieTitel']}</p>"; 
+        echo "<p>Title: {$result['SerieTitel']} | Genre: {$result['GenreNaam']}</p>"; 
     }
 }
 ?>

@@ -17,6 +17,7 @@ include "methods/database.php";
     <h2>Search</h2>
 <form method="post" action="result.php">
     <input type="text" name="name_query" placeholder="Zoek op naam">
+    <input type="text" name="genre_query" placeholder ="zoek op genre">
     <button type="submit">Zoek</button>
 </form>
 
