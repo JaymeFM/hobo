@@ -7,7 +7,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $name_query = $_POST["name_query"];
     $genre_query = $_POST["genre_query"];
 
-    $database = new Database($hostname, $username, $password, $database_name);
+    $database = new Database();
     $results = searchItems($database->connection, $name_query,$genre_query);
     
     foreach ($results as $result) {
