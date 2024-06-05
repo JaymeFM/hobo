@@ -18,7 +18,7 @@
     <div>
      <div class="top">
      <img src="images/pngimg.com - mandalorian_PNG23.png" id="pfp">
-     <div class="naam">Naam</div>
+     <div class="naam">Jayme</div>
      </div>
     </div>
 
