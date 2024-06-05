@@ -11,7 +11,7 @@ function searchItems($connection, $name_query, $genre_query) {
     }
 
     if(!empty($genre_query)){
-        $sql .=" AND genre.GenreNaam LIKE :genre"; // Change this line
+        $sql .=" AND genre.GenreNaam LIKE :genre"; 
     }
 
     $stmt = $connection->prepare($sql);
