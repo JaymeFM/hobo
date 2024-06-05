@@ -8,14 +8,13 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $genre_query = $_POST["genre_query"];
 
     $database = new Database();
-    $results = searchItems($database->connection, $name_query,$genre_query);
+    $results = searchItems($database->connection, $name_query, $genre_query);
     
     foreach ($results as $result) {
-        echo "<p>Title: {$result['SerieTitel']} | Genre: {$result['GenreNaam']}</p>"; 
+        echo "<p>Title: {$result['SerieTitel']} | Genres: {$result['GenreNamen']}</p>"; 
     }
 }
 ?>
-
 
 <!DOCTYPE html>
 <html lang="en">
