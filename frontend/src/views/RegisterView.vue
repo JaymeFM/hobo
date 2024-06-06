@@ -1,3 +1,36 @@
+<script setup>
+import {ref, reactive} from 'vue';
+
+const userData = reactive({
+    voornaam: "",
+    tussenvoegsel: "",
+    achternaam: "",
+    email: "",
+    password: "",
+    confirmPassword: ""
+})
+
+const error = ref("")
+
+async function register() {
+    var fetchedData = await (await fetch('http://localhost:8000/register.php', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(userData)
+    })).json();
+
+    if(fetchedData.succes) {
+        error.value = ''
+    } else {
+        error.value = fetchedData.error
+    }
+
+    console.log(fetchedData)
+}
+</script>
+
 <template>
     <div class="container">
         <img class="logo" src="../assets/hobo.png">
@@ -5,31 +38,32 @@
             <div class="textInput">
                 <div class="input">
                     <label>Voornaam</label>
-                    <input placeholder="Tim" type="text">
+                    <input v-model="userData.voornaam" placeholder="Tim" type="text">
                 </div>
                 <div class="input">
                     <label>Tussenvoegsel</label>
-                    <input placeholder="Tim" type="text">
+                    <input v-model="userData.tussenvoegsel" placeholder="Tim" type="text">
                 </div>
                 <div class="input">
                     <label>Achternaam</label>
-                    <input placeholder="Tim" type="text">
+                    <input v-model="userData.achternaam" placeholder="Tim" type="text">
                 </div>
                 <div class="input">
                     <label>Email</label>
-                    <input placeholder="timlovesfurries@gmail.com" type="email">
+                    <input v-model="userData.email" placeholder="timlovesfurries@gmail.com" type="email">
                 </div>
                 <div class="input">
                     <label>Password</label>
-                    <input placeholder="CollinIsGay123" type="password">
+                    <input v-model="userData.password" placeholder="CollinIsGay123" type="password">
                 </div>
                 <div class="input">
                     <label>Confirm Password</label>
-                    <input placeholder="CollinIsGay123" type="password">
+                    <input v-model="userData.confirmPassword" placeholder="CollinIsGay123" type="password">
                 </div>
-                <button class="submit">Register</button>
+                <button class="submit" @click="register">Register</button>
                 <label class="register"><RouterLink  to="/login">Login</RouterLink> instead.</label>
             </div>
+            <label class="error">{{ error }}</label>
         </div>
     </div>
     
@@ -67,7 +101,7 @@
 input[type=text],
 input[type=password],
 input[type=email] {
-    width: calc(100% - 20px);
+    width: calc(100%);
     padding: 10px;
     border-radius: 10px;
     outline: none;
@@ -107,6 +141,10 @@ input[type=email] {
 .register a {
     text-decoration: none;
     color: #5b9bd5
+}
+
+.error {
+    color: red;
 }
 
 @keyframes fadeInAnimation {
