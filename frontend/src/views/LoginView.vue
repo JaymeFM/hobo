@@ -5,13 +5,13 @@
             <div class="textInput">
                 <div class="input">
                     <label>Email</label>
-                    <input placeholder="timlovesfurries@gmail.com" type="email">
+                    <input placeholder="johanbakker@gmail.com" type="email">
                 </div>
                 <div class="input">
                     <label>Password</label>
-                    <input placeholder="CollinIsGay123" type="password">
+                    <input placeholder="Geheim123" type="password">
                 </div>
-                <button class="submit">Login</button>
+                <q-btn no-caps flat square class="submit" @click="login">Login</q-btn>
                 <label class="register"><RouterLink  to="/register">Register</RouterLink> instead.</label>
             </div>
         </div>
@@ -25,8 +25,8 @@
     animation-iteration-count: 1;
     animation-fill-mode: forwards;
     padding: 30px 0px;
-    background-color: #fff;
-    border-radius: 20px;
+    background-color: #444444;
+    border: 1px solid rgba(255, 255, 255, 0.3);
     width: 400px;
     position: absolute;
     top: 50%;
@@ -47,19 +47,18 @@
 
 
 .input label {
-    color: rgb(60,60,60);
+    color: rgb(255, 255, 255);
 }
 
 input[type=text],
 input[type=password],
 input[type=email] {
-    width: calc(100% - 20px);
+    color: white;
+    width: calc(100%);
     padding: 10px;
-    border-radius: 10px;
     outline: none;
     border: none;
-    background-color: lightgrey;
-    border: 1px solid grey;
+    background-color: rgb(48, 48, 48);
 }
 
 .input {
@@ -79,7 +78,6 @@ input[type=email] {
 .submit {
     width: 100%;
     padding: 10px;
-    border-radius: 10px;
     border: 1px solid #5c8333;
     background-color: #92d051;
     margin: 10px 0;
@@ -88,6 +86,7 @@ input[type=email] {
 
 .register {
     padding-top: 10px;
+    color: white;
 }
 
 .register a {
