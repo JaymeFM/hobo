@@ -56,8 +56,8 @@
             }
         })).json();
 
-        for(const genreNumber in fetchedData.genres) {
-            const genre = fetchedData.genres[genreNumber]
+        for(const genreName in fetchedData.genres) {
+            const genre = fetchedData.genres[genreName]
             for(const serie of genre) {
                 var serieId = serie.SerieID
                 var imageId = ""
@@ -85,9 +85,16 @@
 
             }
 
-            console.log(genre.length)
+            serverData.table[genreName] = {}
+            for (let i = 0; i < genre.length / 6; i++) {
+                serverData.table[genreName][i] = []
+                for(const serieNumber in genre) {
+                    if(Math.floor(serieNumber / 6) == i) {
+                        serverData.table[genreName][i].push(genre[serieNumber])
+                    }
+                }
+            }
         }
-
         serverData.table = fetchedData;
     } 
 
