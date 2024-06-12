@@ -1,6 +1,15 @@
 <template>
-    <div class="navigation">
-        <img src="../assets/hobo.png">
+    <div class="navigation row q-pa-xs">
+        <div class="col">
+            <router-link to="../home">
+                <img src="../assets/hobo.png">
+            </router-link>
+        </div>
+        <div class="col text-right">
+            <router-link to="../search">
+                <img src="../assets/search.png">
+            </router-link>
+        </div>
     </div>
 </template>
 
