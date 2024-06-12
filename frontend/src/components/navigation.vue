@@ -1,0 +1,28 @@
+<template>
+    <div class="navigation row q-pa-xs">
+        <div class="col">
+            <router-link to="../home">
+                <img src="../assets/hobo.png">
+            </router-link>
+        </div>
+        <div class="col text-right">
+            <router-link to="../search">
+                <img src="../assets/search.png">
+            </router-link>
+        </div>
+    </div>
+</template>
+
+<style scoped>
+
+.navigation {
+    width: 100%;
+    background-color: #19161f;
+    position: fixed;
+}
+
+img {
+    height: 60px;
+}
+
+</style>
