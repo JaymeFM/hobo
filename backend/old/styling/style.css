@@ -14,6 +14,12 @@ body{
     margin: 0;
 }
 
+.profielbody{
+  background: linear-gradient(to bottom, #000000, #312d37, rgb(34, 31, 38));
+  height: 100vh;
+  margin: 0;
+}
+
 .templatebody{
   background: linear-gradient(to bottom, #444444, #312d37, rgb(34, 31, 38));
   height: 100vh;
@@ -32,20 +38,20 @@ header{
 }
 
 #logo {
-    width: 12vw;
-    height: 8vh;
+    width: 200px;
+    height: 70px;
     transition-property: width, height;
     transition-duration: 1s;
 }
 
 #logo:hover{
-    width: 13vw;
-    height: 9vh;
+    width: 210px;
+    height: 75px;
 }
 
 #zoek {
-    width: 3vw;
-    height: 6vh;
+    width: 50px;
+    height: 50px;
     padding-top: 1.3vh;
     padding-right: 1vw; 
     transition-property: width, height;
@@ -53,22 +59,44 @@ header{
 }
 
 #zoek:hover{
-    width: 3.5vw;
-    height: 7vh;
+  width: 55px;
+  height: 55px;
 }
 
 #inlog {
-    width: 3vw;
-    height: 6vh;
+  width: 50px;
+  height: 50px;
     padding-right: 1vw;
     transition-property: width, height, padding-top;
     transition-duration: 1s;
 }
 
 #inlog:hover{
-    width: 3.5vw;
-    height: 7vh;
+  width: 55px;
+  height: 55px;
     padding-top: 0.5vw;
+}
+
+.loginbutton {
+  background-color: #92b051;
+  color: #ffffff;
+  text-shadow: 2px 2px 1px rgb(0, 0, 0);
+  border: none;
+  width: 200px; 
+  height: 50px;
+  margin-right: 20px;
+  margin-top: 15px;
+  border-radius: 0.5vw;
+  font-size: 1.5rem;
+  font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+
+.loginbutton:hover {
+  transition-property: width, height, background-color;
+  transition-duration: 1s;
+  background-color: #728940;
+  width: 205px; 
+  height: 55px;
 }
 
 .slider{
@@ -82,10 +110,6 @@ header{
     box-shadow: 0px 5px 7px 2px rgba(0,0,0,0.75);
     -webkit-box-shadow: 0px 5px 7px 2px rgba(0,0,0,0.75);
     -moz-box-shadow: 0px 5px 7px 2px rgba(0,0,0,0.75);
-}
-
-.slider:hover{
-    border: solid 2px #92b051;
 }
 
 .slider img{
@@ -670,8 +694,8 @@ img.displaySlide{
 
 
   .genre img{
-    width: 18vw;
-    height: 32vh;
+    width: 250px;
+    height: 250px;
     border-radius: 20px;
     transition-property: transform;
     transition: transform 0.3s ease;
@@ -689,6 +713,20 @@ img.displaySlide{
     text-align: center;
     padding: 20px 0;
     display: flex;
+    bottom: 0;
+    width: 100%;
+  }
+
+  .footer1 {
+    background-color: #19161f;
+    color: #fff;
+    font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    text-align: center;
+    padding: 20px 0;
+    display: flex;
+    bottom: 0;
+    width: 100%;
+    position: fixed;
   }
   
   .footer-container {
@@ -784,8 +822,8 @@ img.displaySlide{
   }
 
   .poster-template {
-    width: 25vw; /* Adjust size as needed */
-    height: 75vh; /* Maintain aspect ratio */
+    width: 25vw;
+    height: 75vh;
     margin-right: 20vw;
     margin-top: 17vh;
     box-shadow: 0px 0px 14px 9px rgba(0,0,0,0.75);
@@ -793,9 +831,82 @@ img.displaySlide{
    -moz-box-shadow: 0px 0px 14px 9px rgba(0,0,0,0.75);
   }
 
-  /* Flexbox container for layout */
   .temp {
     display: flex;
-    align-items: flex-start; /* Align items at the start */
-    justify-content: space-between; /* Add space between items */
+    align-items: flex-start; 
+    justify-content: space-between; 
   }
+
+.top{
+  display: flex;
+  align-items: center;
+}
+
+#pfp {
+    margin-top: 10vh;
+    padding-left: 10vw;
+    padding-top: 2vw;
+    width: 150px;
+    height: 150px;
+}
+
+.naam{
+  color: white;
+  font-size: 3rem;
+  font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+  margin-left: 3vw;
+  margin-top: 12vh;
+}
+
+#titleprofiel {
+  color: white;
+  text-shadow: 0px 2px 4px black;
+  text-transform: uppercase;
+  padding-bottom: 10px;
+  font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+  padding-left: 5vw;
+  display: flex;
+  font-size: 1.5rem;
+}
+
+.containerprofiel{
+  padding-top: 5vh;
+  margin-top: 5vh;
+  border-top: #92b051 solid 3px;
+}
+
+.slider-wrapperprofiel .image-listprofiel {
+  display: grid;
+  grid-template-columns: repeat(20, 1fr);
+  gap: 20px;
+  font-size: 0;
+  list-style: none;
+  margin-bottom: 30px;
+  overflow-x: auto;
+  scrollbar-width: none;
+  padding-left:7.5vw;
+}
+
+.slider-wrapperprofiel .image-listprofiel::-webkit-scrollbar {
+  display: none;
+}
+
+.image-itemprofiel{
+  width: 150spx;
+  height: 250px;
+  object-fit: cover;
+  border-radius: 8%;
+  transition-property: transform;
+  transition: transform 0.3s ease;
+  padding-top: 1vh;
+  padding-bottom: 1vh;
+}
+  
+.image-itemprofiel:hover {
+  transition-property: transform;
+  transform: scale(1.05);
+  border-radius: 8%;
+  object-fit: cover;
+  padding-top: 1vh;
+  padding-bottom: 1vh;
+}

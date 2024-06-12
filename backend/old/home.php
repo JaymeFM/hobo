@@ -105,16 +105,16 @@
 
 
     <section class= genres>
-        <div class=genre><img src="images/27495ee3-1738-465b-a44d-3a647284e9ea.jpg" alt=""></div>
-        <div class=genre><img src="images/930f96ae-ee3c-4cce-84f8-81b8cd4a3b63.jpg" alt=""></div>
         <div class=genre><img src="images/4afa340f-20a1-4bd8-873f-949d8fc03321.jpg" alt=""></div>
+        <div class=genre><img src="images/930f96ae-ee3c-4cce-84f8-81b8cd4a3b63.jpg" alt=""></div>
+        <div class=genre><img src="images\pixlr-image-generator-4ff90a85-b1b8-488e-97f9-7895ed49a8c5.png" alt=""></div>
         <div class=genre><img src="images/e454a029-9080-4241-892d-f21f46ca6893.jpg" alt=""></div>
     </section>
 
     
 
     <div class="container2">
-  <h1 id="title2">Action</h1>
+  <h1 id="title2">Thriller</h1>
   <div class="slider-wrapper2">
     <button id="prev-slide2" class="slide-button2 material-symbols-rounded2">
       &lt;
@@ -195,9 +195,9 @@
 
 <section class= genres>
         <div class=genre><img src="images\a5f5b6df-8c43-4d82-ac01-60d4e78ccc45.jpg" alt=""></div>
+        <div class=genre><img src='images\61173868-fade-43f4-a446-2564485288a9.jpg' alt=""></div>
         <div class=genre><img src="images\d890518a-c76e-419b-9392-2b3602e2e159.jpg" alt=""></div>
-        <div class=genre><img src="images/4afa340f-20a1-4bd8-873f-949d8fc03321.jpg" alt=""></div>
-        <div class=genre><img src="images/e454a029-9080-4241-892d-f21f46ca6893.jpg" alt=""></div>
+        <div class=genre><img src="images\pixlr-image-generator-a2e1d4c5-36f1-4570-9fee-59ff135f9c24.png" alt=""></div>
     </section>
 
 
@@ -242,7 +242,7 @@
 </div>
 
 <div class="container5">
-  <h1 id="title">Sci-Fi</h1>
+  <h1 id="title">Drama</h1>
   <div class="slider-wrapper5">
     <button id="prev-slide5" class="slide-button5 material-symbols-rounded5">
       &lt;
