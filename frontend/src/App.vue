@@ -6,7 +6,11 @@ import Navigation from './components/navigation.vue'
 <template>
   <Navigation />
   <div class="q-pa-xl">
-    <RouterView />
+    <div class="q-pa-xl">
+      <div class="q-pa-xl">
+        <RouterView />
+      </div>
+    </div>
   </div>
 </template>
 
