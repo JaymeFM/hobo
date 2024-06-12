@@ -77,6 +77,28 @@ header{
     padding-top: 0.5vw;
 }
 
+.loginbutton {
+  background-color: #92b051;
+  color: #ffffff;
+  text-shadow: 2px 2px 1px rgb(0, 0, 0);
+  border: none;
+  width: 200px; 
+  height: 50px;
+  margin-right: 20px;
+  margin-top: 15px;
+  border-radius: 0.5vw;
+  font-size: 1.5rem;
+  font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+
+.loginbutton:hover {
+  transition-property: width, height, background-color;
+  transition-duration: 1s;
+  background-color: #728940;
+  width: 205px; 
+  height: 55px;
+}
+
 .slider{
     position: relative;
     width: 90%;
@@ -691,6 +713,20 @@ img.displaySlide{
     text-align: center;
     padding: 20px 0;
     display: flex;
+    bottom: 0;
+    width: 100%;
+  }
+
+  .footer1 {
+    background-color: #19161f;
+    color: #fff;
+    font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    text-align: center;
+    padding: 20px 0;
+    display: flex;
+    bottom: 0;
+    width: 100%;
+    position: fixed;
   }
   
   .footer-container {
