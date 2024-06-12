@@ -1,52 +1,7 @@
 <script setup>
     import { reactive } from 'vue';
 
-    // const series = reactive({
-    //     table: {}
-    // })
-
-    // async function run() {
-    //     var fetchedData = await (await fetch('http://localhost:8000/getHome.php', {
-    //         method: 'GET',
-    //         headers: {
-    //             'Content-Type': 'application/json',
-    //         }
-    //     })).json();
-
-    //     for(const serie of fetchedData) {
-    //         var serieId = serie.SerieID
-    //         var imageId = ""
-
-
-    //         if(serieId < 10000) {
-    //             imageId += "0"
-    //         }
-
-    //         if(serieId < 1000) {
-    //             imageId += "0"
-    //         }
-
-    //         if(serieId < 100) {
-    //             imageId += "0"
-    //         }
-            
-    //         if(serieId < 10) {
-    //             imageId += "0"
-    //         }
-
-    //         imageId += serieId
-
-    //         serie.ImageID = imageId
-
-    //         console.log(serie)
-    //     }
-
-    //     series.table = fetchedData
-    // }
-
-    // run()
-
-    const serverData = reactive({table: {}})
+    const serverData = reactive({genres: {}, new: {}})
 
     async function getServerData() {
         var fetchedData = await (await fetch(`http://localhost:8000/getHome.php`, {
@@ -85,17 +40,53 @@
 
             }
 
-            serverData.table[genreName] = {}
+            serverData.genres[genreName] = {page: '0', pages: {}}
             for (let i = 0; i < genre.length / 6; i++) {
-                serverData.table[genreName][i] = []
+                serverData.genres[genreName].pages[i] = []
                 for(const serieNumber in genre) {
                     if(Math.floor(serieNumber / 6) == i) {
-                        serverData.table[genreName][i].push(genre[serieNumber])
+                        serverData.genres[genreName].pages[i].push(genre[serieNumber])
                     }
                 }
             }
         }
-        serverData.table = fetchedData;
+
+        serverData.new = {page: '0', pages: {}}
+        for(const serieNumber in fetchedData.new) {
+            var serie = fetchedData.new[serieNumber]
+            var serieId = serie.SerieID
+            var imageId = ""
+
+            if(serieId < 10000) {
+                imageId += "0"
+            }
+
+            if(serieId < 1000) {
+                imageId += "0"
+            }
+
+            if(serieId < 100) {
+                imageId += "0"
+            }
+            
+            if(serieId < 10) {
+                imageId += "0"
+            }
+
+            imageId += serieId
+
+            serie.ImageID = imageId
+
+            let page = Math.floor(serieNumber / 6)
+
+            if (!serverData.new.pages[page]) {
+                serverData.new.pages[page] = []
+            }
+
+            serverData.new.pages[page].push(serie)
+        }
+
+        console.log(serverData)
     } 
 
     getServerData()
@@ -104,14 +95,50 @@
 
 <template>
     <div>
-        <!-- <div v-for="(genre, genreNumber) in genres.table" :key="genreID">
-            <div class="title">{{ genre.GenreNaam }}</div>
-
-        </div> -->
-
-        <!-- <router-link v-for="(serie, serieId) in series.table" :key="serieId" :to="`serie/${serie.SerieID}`">
-            <img  :src="`serieImages/${serie.ImageID}.jpg`">
-        </router-link> -->
+        <div>
+            <div class="title">New</div>
+            <q-carousel
+                v-model="serverData.new.page"
+                transition-prev="slide-right"
+                transition-next="slide-left"
+                swipeable
+                animated
+                control-color="white"
+                arrows
+                class="bg-dark"
+            >
+                <q-carousel-slide 
+                v-for="(page, PageID) in serverData.new.pages" :key="PageID"
+                :name="PageID" class="row q-col-gutter-sm">
+                    <router-link v-for="(serie, SerieNumber) in page" :key="SerieNumber" class="col-2" :to="`serie/${serie.SerieID}`">
+                        <img :src="`serieImages/${serie.ImageID}.jpg`">
+                    </router-link>
+                </q-carousel-slide>
+            </q-carousel>
+        </div>
+        <div v-for="(genre, GenreName) in serverData.genres" :key="GenreName">
+            <div v-if="Object.keys(genre.pages).length">
+                <div class="title">{{ GenreName }}</div>
+                <q-carousel
+                    v-model="genre.page"
+                    transition-prev="slide-right"
+                    transition-next="slide-left"
+                    swipeable
+                    animated
+                    control-color="white"
+                    arrows
+                    class="bg-dark"
+                >
+                <q-carousel-slide 
+                v-for="(page, PageID) in genre.pages" :key="PageID"
+                :name="PageID" class="row q-col-gutter-sm">
+                    <router-link v-for="(serie, SerieNumber) in page" :key="SerieNumber" class="col-2" :to="`serie/${serie.SerieID}`">
+                        <img :src="`serieImages/${serie.ImageID}.jpg`">
+                    </router-link>
+                </q-carousel-slide>
+            </q-carousel>
+            </div>
+        </div>
     </div>
 </template>
 
@@ -120,4 +147,17 @@
     font-size: 50px;
     color: white;
 }
+
+img {
+    width: 100%;
+}
+
+::v-deep .q-carousel__slide {
+    padding: 0;
+}
+
+::v-deep .q-panel {
+    overflow: hidden;
+}
+
 </style>

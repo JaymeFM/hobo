@@ -53,6 +53,8 @@ function getThumbnail() {
     return `../serieImages/${imageId}.jpg`
 }
 
+console.log(serie.table)
+
 run()
 </script>
 
@@ -71,6 +73,12 @@ run()
 
                         <div class="col-6 q-px-md">
                             <div class="title">{{ serie.table.serie[0].SerieTitel }}</div>
+                            <div class="genres row q-col-gutter-sm">
+                                <div v-for="(genre, genreNummer) in serie.table.genres" :key="genreNummer"  class="col-2">
+                                    <div class="genre">{{ genre.GenreNaam }}</div>
+                                </div>
+                            </div>
+                            <div class="moreinformation">More information <a target="_blank" :href="serie.table.serie[0].IMDBLink">here</a></div>
                         </div>
 
                         <div class="col-4 seasonInfo">
@@ -107,7 +115,7 @@ run()
     </div>
 </template>
 
-<style scoped>
+<style scoped lang="scss">
 .margin {
     width: 80%;
     margin: auto;
@@ -154,5 +162,20 @@ run()
 
 ::v-deep .q- {
     background-color: #383838;
+}
+
+.genre {
+    text-align: center;
+    color: white;
+    background-color: $secondary;
+    padding: 10px;
+}
+
+.moreinformation {
+    margin-top: 10px;
+    color: white;
+    a {
+        color: $primary;
+    }
 }
 </style>

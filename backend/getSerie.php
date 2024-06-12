@@ -12,6 +12,20 @@ require_once "database.php";
 $database = new Database("localhost", "root", "", "hobo");
 
 // GET DATA
+function getGenres($connection) {
+    $serieId = intval($_GET["serieId"]);
+    
+    $sql = "SELECT genre.GenreID, genre.GenreNaam
+    FROM serie_genre
+    JOIN genre ON serie_genre.GenreID = genre.GenreID
+    WHERE serie_genre.SerieID = :serieId;";
+    $stmt = $connection->prepare($sql);
+    $stmt->bindValue(':serieId', $serieId, PDO::PARAM_STR);
+    $stmt->execute();
+    $results = $stmt->fetchAll(PDO::FETCH_ASSOC);
+    return $results;
+}
+
 function getSerie($connection) {
     $serieId = intval($_GET["serieId"]);
 
@@ -57,6 +71,7 @@ function getSeasons($connection) {
 $results = (object) [
     'serie' => getSerie($database->connection),
     'seasons' => getSeasons($database->connection),
+    'genres' => getGenres($database->connection)
 ];
 
 echo json_encode($results);

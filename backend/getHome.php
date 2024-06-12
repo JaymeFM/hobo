@@ -12,16 +12,6 @@ require_once "database.php";
 $database = new Database("localhost", "root", "", "hobo");
 
 // GET DATA
-function getData($connection) {
-    $sql = "SELECT * FROM serie WHERE Actief = 1";
-
-    $stmt = $connection->prepare($sql);
-    $stmt->execute();
-    $results = $stmt->fetchAll(PDO::FETCH_ASSOC);
-
-    return $results;
-}
-
 function getGenres($connection) {
     $sql = "SELECT * FROM genre";
     $stmt = $connection->prepare($sql);
@@ -30,18 +20,28 @@ function getGenres($connection) {
     return $results;
 }
 
-
+function getNew($connection) {
+    $sql = "SELECT *
+    FROM serie
+    WHERE Actief = 1
+    ORDER BY serie.SerieID DESC;";
+    $stmt = $connection->prepare($sql);
+    $stmt->execute();
+    $results = $stmt->fetchAll(PDO::FETCH_ASSOC);
+    return $results;
+}
 
 // RETURN RESULTS
 $return = (object) [
-    'genres' => (object) []
+    'genres' => (object) [],
+    'new' => getnew($database->connection)
 ];
 
 foreach(getGenres($database->connection) as $genreKey => $genre) {
     $sql = "SELECT serie_genre.GenreID, serie.*
     FROM serie_genre
     JOIN serie ON serie_genre.SerieID = serie.SerieID
-    WHERE serie_genre.GenreID = :genreID;";
+    WHERE serie_genre.GenreID = :genreID AND Actief = 1; ";
     $stmt = $database->connection->prepare($sql);
     $stmt->bindParam(':genreID', $genre['GenreID'], PDO::PARAM_INT);
     $stmt->execute();
