@@ -70,14 +70,14 @@ updateSeries()
 <div>
     <div class="row q-col-gutter-sm">
         <div class="col-10">
-            <q-input filled dark color="secondary" squared v-model="searchQuery" @update:model-value="updateSeries" label="Search" />
+            <q-input filled dark color="primary" squared v-model="searchQuery" @update:model-value="updateSeries" label="Search" />
         </div>
         <div class="col-2">
             <q-select
             filled
             square
             dark
-            color="secondary"
+            color="primary"
             :options="genres.table"
             v-model="genreQuery"
             option-value="GenreNaam"

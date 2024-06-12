@@ -1,56 +1,116 @@
 <script setup>
     import { reactive } from 'vue';
 
-    const series = reactive({
-        table: {}
-    })
+    // const series = reactive({
+    //     table: {}
+    // })
 
-    async function run() {
-        var fetchedData = await (await fetch('http://localhost:8000/getSeries.php', {
-            method: 'GET',
+    // async function run() {
+    //     var fetchedData = await (await fetch('http://localhost:8000/getHome.php', {
+    //         method: 'GET',
+    //         headers: {
+    //             'Content-Type': 'application/json',
+    //         }
+    //     })).json();
+
+    //     for(const serie of fetchedData) {
+    //         var serieId = serie.SerieID
+    //         var imageId = ""
+
+
+    //         if(serieId < 10000) {
+    //             imageId += "0"
+    //         }
+
+    //         if(serieId < 1000) {
+    //             imageId += "0"
+    //         }
+
+    //         if(serieId < 100) {
+    //             imageId += "0"
+    //         }
+            
+    //         if(serieId < 10) {
+    //             imageId += "0"
+    //         }
+
+    //         imageId += serieId
+
+    //         serie.ImageID = imageId
+
+    //         console.log(serie)
+    //     }
+
+    //     series.table = fetchedData
+    // }
+
+    // run()
+
+    const serverData = reactive({table: {}})
+
+    async function getServerData() {
+        var fetchedData = await (await fetch(`http://localhost:8000/getHome.php`, {
+            method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
             }
         })).json();
 
-        for(const serie of fetchedData) {
-            var serieId = serie.SerieID
-            var imageId = ""
+        for(const genreNumber in fetchedData.genres) {
+            const genre = fetchedData.genres[genreNumber]
+            for(const serie of genre) {
+                var serieId = serie.SerieID
+                var imageId = ""
 
 
-            if(serieId < 10000) {
-                imageId += "0"
+                if(serieId < 10000) {
+                    imageId += "0"
+                }
+
+                if(serieId < 1000) {
+                    imageId += "0"
+                }
+
+                if(serieId < 100) {
+                    imageId += "0"
+                }
+                
+                if(serieId < 10) {
+                    imageId += "0"
+                }
+
+                imageId += serieId
+
+                serie.ImageID = imageId
+
             }
 
-            if(serieId < 1000) {
-                imageId += "0"
-            }
-
-            if(serieId < 100) {
-                imageId += "0"
-            }
-            
-            if(serieId < 10) {
-                imageId += "0"
-            }
-
-            imageId += serieId
-
-            serie.ImageID = imageId
-
-            console.log(serie)
+            console.log(genre.length)
         }
 
-        series.table = fetchedData
-    }
+        serverData.table = fetchedData;
+    } 
 
-    run()
+    getServerData()
+
 </script>
 
 <template>
     <div>
-        <router-link v-for="(serie, serieId) in series.table" :key="serieId" :to="`serie/${serie.SerieID}`">
+        <!-- <div v-for="(genre, genreNumber) in genres.table" :key="genreID">
+            <div class="title">{{ genre.GenreNaam }}</div>
+
+        </div> -->
+
+        <!-- <router-link v-for="(serie, serieId) in series.table" :key="serieId" :to="`serie/${serie.SerieID}`">
             <img  :src="`serieImages/${serie.ImageID}.jpg`">
-        </router-link>
+        </router-link> -->
     </div>
 </template>
+
+<style scoped>
+.title {
+    font-size: 50px;
+    color: white;
+}
+</style>

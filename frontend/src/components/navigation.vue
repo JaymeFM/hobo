@@ -17,8 +17,9 @@
 
 .navigation {
     width: 100%;
-    background-color: #19161f;
+    background-color: #1f1f1f;
     position: fixed;
+    z-index: 99;
 }
 
 img {

@@ -78,7 +78,7 @@ run()
                                 filled
                                 square
                                 dark
-                                color="secondary"
+                                color="primary"
                                 v-model="seasonSelected"
                                 :options="serie.table.seasons"
                                 option-value="Rang"
@@ -90,7 +90,7 @@ run()
                             <q-tab-panels v-model="seasonSelected" style="background: none"  class="q-mt-md">
                                 <q-tab-panel v-for="(season, seasonId) in serie.table.seasons" :key="seasonId" :name="season.Rang" class="row q-pa-none q-col-gutter-xs">
                                     <div  class="col-6" v-for="(episode, episodeId) in season.Episodes" :key="episodeId">
-                                        <q-btn :ripple="{ color: 'secondary'}" flat no-caps dark align="left" class="seasonButton full-width">{{ episode.AflTitel }}</q-btn>
+                                        <q-btn :ripple="{ color: 'primary'}" flat no-caps dark align="left" class="seasonButton full-width">{{ episode.AflTitel }}</q-btn>
                                     </div>
                                 </q-tab-panel>
                             </q-tab-panels>

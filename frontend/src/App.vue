@@ -14,11 +14,11 @@ import Navigation from './components/navigation.vue'
   </div>
 </template>
 
-<style>
+<style lang="scss">
 body{
   font-family: 'Neutra Text TF', sans-serif;
   margin: 0;
-  background-image: url("../wallpaper.png");
+  background-color: $dark;
 }
 
 @import url('https://fonts.cdnfonts.com/css/neutra-text-tf');
