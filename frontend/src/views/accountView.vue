@@ -2,7 +2,7 @@
 import { userStore } from "../stores/userStore.vue";
 import { storeToRefs } from "pinia";
 import Cookies from 'js-cookie';
-import { reactive } from "vue";
+import { reactive, toRaw } from "vue";
 
 const userData = storeToRefs(userStore())
 
@@ -23,19 +23,27 @@ function logout() {
     <div class="row q-col-gutter-md" >
         <div class="col-6">
             <div class="container q-pa-md">
-                <div class="section">
-                    <div class="title">
-                        Profiel
+                <div class="section q-mb-sm row">
+                    <div class="col">
+
+                        <div class="title">
+                            Profiel
+                        </div>
+                        <p>Voornaam : {{ userData.data.value.Voornaam }}</p>
+                        <p>Tussenvoegsel : {{ userData.data.value.Tussenvoegsel }}</p>
+                        <p>Achternaam : {{ userData.data.value.Achternaam }}</p>
                     </div>
-                    <p>Voornaam : {{ userData.data.Voornaam }}</p>
-                    <p>Tussenvoegsel : {{ userData.data.Tussenvoegsel }}</p>
-                    <p>Achternaam : {{ userData.data.Achternaam }}</p>
+                    <div class="col row justify-end">
+                        <div class="profileImage">
+                            {{ userData.data.value.Voornaam.split('')[0].toUpperCase() }}
+                        </div>
+                    </div>
                 </div>
                 <div class="section">
                     <div class="title">
                         Gegevens
                     </div>
-                    <p>Email : {{ userData.data.Email }}</p>
+                    <p>Email : {{ userData.data.value.Email }}</p>
                 </div>
             </div>
             <div class="container q-pa-md q-mt-md">
@@ -57,7 +65,7 @@ function logout() {
     </div>
 </template>
 
-<style scoped>
+<style scoped lang="scss">
 .logout {
     width: 100%;
     padding: 10px;
@@ -82,5 +90,16 @@ function logout() {
 
 .section p {
     margin: 0;
+}
+
+.profileImage {
+    width: 100px;
+    height: 100px;
+    background-color: $secondary;
+    color: white;
+    text-align: center;
+    line-height: 100px;
+    border-radius: 50%;
+    font-size: 50px;
 }
 </style>

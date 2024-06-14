@@ -2,17 +2,19 @@
     import { userStore } from "../stores/userStore.vue";
     import { storeToRefs } from "pinia";
     import { reactive } from 'vue';
+    import Cookies from 'js-cookie';
 
-    const serverData = reactive({genres: {}, new: {}})
+    const serverData = reactive({genres: {}, new: {}});
 
-    const userData = storeToRefs(userStore())
+    const userData = storeToRefs(userStore());
 
     async function getServerData() {
         var fetchedData = await (await fetch(`http://localhost:8000/getHome.php`, {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
-            }
+            },
+            body: JSON.stringify({email: Cookies.get('email'), password: Cookies.get('password')})
         })).json();
 
         for(const genreName in fetchedData.genres) {
