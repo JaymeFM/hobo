@@ -1,13 +1,23 @@
+
+<script setup>
+    import { userStore } from "../stores/userStore.vue";
+    import { storeToRefs } from "pinia";
+    const userData = storeToRefs(userStore())
+</script>
+
 <template>
-    <div class="navigation row q-pa-xs">
+    <div class="navigation row q-pa-md">
         <div class="col">
             <router-link to="../home">
                 <img src="../assets/hobo.png">
             </router-link>
         </div>
         <div class="col text-right">
-            <router-link to="../search">
+            <router-link class="navbutton" to="../search">
                 <img src="../assets/search.png">
+            </router-link>
+            <router-link class="navbutton" :to="userData.loggedIn.value ? '../account' : '../login'">
+                <img src="../assets/account.png">
             </router-link>
         </div>
     </div>
@@ -23,7 +33,11 @@
 }
 
 img {
-    height: 60px;
+    height: 40px;
+}
+
+.navbutton {
+    margin-left: 20px;
 }
 
 </style>

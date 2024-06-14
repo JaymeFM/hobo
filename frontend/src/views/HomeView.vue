@@ -1,7 +1,11 @@
 <script setup>
-    import { reactive } from 'vue';
+    import { userStore } from "../stores/userStore.vue";
+    import { storeToRefs } from "pinia";
+    import {reactive} from 'vue';
 
     const serverData = reactive({genres: {}, new: {}})
+
+    const userData = storeToRefs(userStore())
 
     async function getServerData() {
         var fetchedData = await (await fetch(`http://localhost:8000/getHome.php`, {
@@ -110,7 +114,7 @@
                 <q-carousel-slide 
                 v-for="(page, PageID) in serverData.new.pages" :key="PageID"
                 :name="PageID" class="row q-col-gutter-sm">
-                    <router-link v-for="(serie, SerieNumber) in page" :key="SerieNumber" class="col-2" :to="`serie/${serie.SerieID}`">
+                    <router-link v-for="(serie, SerieNumber) in page" :key="SerieNumber" class="col-2" :to="userData.loggedIn.value ? `serie/${serie.SerieID}` : '../login'">
                         <img :src="`serieImages/${serie.ImageID}.jpg`">
                     </router-link>
                 </q-carousel-slide>
@@ -132,7 +136,7 @@
                 <q-carousel-slide 
                 v-for="(page, PageID) in genre.pages" :key="PageID"
                 :name="PageID" class="row q-col-gutter-sm">
-                    <router-link v-for="(serie, SerieNumber) in page" :key="SerieNumber" class="col-2" :to="`serie/${serie.SerieID}`">
+                    <router-link v-for="(serie, SerieNumber) in page" :key="SerieNumber" class="col-2" :to="userData.loggedIn.value ? `serie/${serie.SerieID}` : '../login'">
                         <img :src="`serieImages/${serie.ImageID}.jpg`">
                     </router-link>
                 </q-carousel-slide>

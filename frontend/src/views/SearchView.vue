@@ -1,5 +1,8 @@
 <script setup>
 import {ref, reactive} from 'vue';
+import { userStore } from "../stores/userStore.vue";
+import { storeToRefs } from "pinia";
+const userData = storeToRefs(userStore())
 
 const searchQuery = ref("")
 const genreQuery = ref("")
@@ -92,7 +95,7 @@ updateSeries()
     </div>
     <div class="row q-col-gutter-sm q-mt-md">
         <div class="col-2" v-for="(serie, serieId) in series.table" :key="serieId">
-            <router-link :to="`serie/${serie.SerieID}`">
+            <router-link :to="userData.loggedIn.value ? `serie/${serie.SerieID}` : '../login'">
                 <img :src="`serieImages/${serie.ImageID}.jpg`">
             </router-link>
         </div>
