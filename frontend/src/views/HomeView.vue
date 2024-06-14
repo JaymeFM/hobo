@@ -1,7 +1,7 @@
 <script setup>
     import { userStore } from "../stores/userStore.vue";
     import { storeToRefs } from "pinia";
-    import {reactive} from 'vue';
+    import { reactive } from 'vue';
 
     const serverData = reactive({genres: {}, new: {}})
 
