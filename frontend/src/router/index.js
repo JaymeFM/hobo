@@ -5,6 +5,7 @@ import RegisterView from "../views/RegisterView.vue"
 import SerieView from "../views/SerieView.vue"
 import SearchView from '../views/SearchView.vue'
 import AccountView from '../views/accountView.vue'
+import HistoryView from '@/views/HistoryView.vue'
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
@@ -42,6 +43,11 @@ const router = createRouter({
       path: '/account',
       name: 'account',
       component: AccountView
+    },
+    {
+      path: '/history',
+      name: 'history',
+      component: HistoryView
     },
   ]
 })

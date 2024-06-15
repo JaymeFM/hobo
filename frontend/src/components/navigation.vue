@@ -13,11 +13,17 @@
             </router-link>
         </div>
         <div class="col text-right">
-            <router-link class="navbutton" to="../search">
-                <img src="../assets/search.png">
+            <router-link class="navbutton" to="../home">
+                <q-btn color="primary" icon="home" />
             </router-link>
-            <router-link class="navbutton" :to="userData.loggedIn.value ? '../account' : '../login'">
-                <img src="../assets/account.png">
+            <router-link class="navbutton" to="../search">
+                <q-btn color="primary" icon="search" />
+            </router-link>
+            <router-link class="navbutton" to="../history">
+                <q-btn color="primary" icon="history" />
+            </router-link>
+            <router-link class="navbutton" to="../account">
+                <q-btn color="primary" icon="account_circle" />
             </router-link>
         </div>
     </div>
