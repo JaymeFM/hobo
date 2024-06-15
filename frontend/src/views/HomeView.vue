@@ -1,7 +1,7 @@
 <script setup>
     import { userStore } from "../stores/userStore.vue";
     import { storeToRefs } from "pinia";
-    import { reactive } from 'vue';
+    import { reactive, ref } from 'vue';
     import Cookies from 'js-cookie';
 
     const serverData = reactive({genres: {}, new: {}, continue: {}});
@@ -141,57 +141,48 @@
 
     getServerData()
 
+    const bigContainerPage = ref('0')
+
 </script>
 
 <template>
     <div>
-        <div>
-            <div class="title">Continue Watching</div>
-            <q-carousel
-                v-model="serverData.continue.page"
-                transition-prev="slide-right"
-                transition-next="slide-left"
-                swipeable
-                animated
-                control-color="white"
-                arrows
-                class="bg-dark"
-            >
-                <q-carousel-slide 
-                v-for="(page, PageID) in serverData.continue.pages" :key="PageID"
-                :name="PageID" class="row q-col-gutter-sm">
-                    <router-link v-for="(serie, SerieNumber) in page" :key="SerieNumber" class="col-2" :to="userData.loggedIn.value ? `serie/${serie.SerieID}` : '../login'">
-                        <img :src="`serieImages/${serie.ImageID}.jpg`">
-                    </router-link>
-                </q-carousel-slide>
-            </q-carousel>
-        </div>
-        <div>
-            <div class="title">New</div>
-            <q-carousel
-                v-model="serverData.new.page"
-                transition-prev="slide-right"
-                transition-next="slide-left"
-                swipeable
-                animated
-                control-color="white"
-                arrows
-                class="bg-dark"
-            >
-                <q-carousel-slide 
-                v-for="(page, PageID) in serverData.new.pages" :key="PageID"
-                :name="PageID" class="row q-col-gutter-sm">
-                    <router-link v-for="(serie, SerieNumber) in page" :key="SerieNumber" class="col-2" :to="userData.loggedIn.value ? `serie/${serie.SerieID}` : '../login'">
-                        <img :src="`serieImages/${serie.ImageID}.jpg`">
-                    </router-link>
-                </q-carousel-slide>
-            </q-carousel>
-        </div>
-        <div v-for="(genre, GenreName) in serverData.genres" :key="GenreName">
-            <div v-if="Object.keys(genre.pages).length">
-                <div class="title">{{ GenreName }}</div>
+        <q-carousel
+            v-model="bigContainerPage"
+            transition-prev="slide-right"
+            transition-next="slide-left"
+            swipeable
+            animated
+            control-color="white"
+            arrows
+            class="bg-dark"
+            navigation
+            infinite
+            autoplay
+            height="500px"
+        >
+            <q-carousel-slide name="0">
+                <router-link :to="userData.loggedIn.value ? `serie/1` : '../login'">
+                    <img src="../assets/strangerThings.jpg">
+                </router-link>
+            </q-carousel-slide>
+            <q-carousel-slide name="1">
+                <router-link :to="userData.loggedIn.value ? `serie/6` : '../login'">
+                    <img src="../assets/umrellaAcademy.jpg">
+                </router-link>
+            </q-carousel-slide>
+            <q-carousel-slide name="2">
+                <router-link :to="userData.loggedIn.value ? `serie/38` : '../login'">
+                    <img src="../assets/sexEducation.jpg">
+                </router-link>
+            </q-carousel-slide>
+        </q-carousel>
+
+        <div v-if="userData.loggedIn.value" >
+            <div v-if="userData.loggedIn.value" >
+                <div class="title">Continue Watching</div>
                 <q-carousel
-                    v-model="genre.page"
+                    v-model="serverData.continue.page"
                     transition-prev="slide-right"
                     transition-next="slide-left"
                     swipeable
@@ -200,14 +191,58 @@
                     arrows
                     class="bg-dark"
                 >
-                <q-carousel-slide 
-                v-for="(page, PageID) in genre.pages" :key="PageID"
-                :name="PageID" class="row q-col-gutter-sm">
-                    <router-link v-for="(serie, SerieNumber) in page" :key="SerieNumber" class="col-2" :to="userData.loggedIn.value ? `serie/${serie.SerieID}` : '../login'">
-                        <img :src="`serieImages/${serie.ImageID}.jpg`">
-                    </router-link>
-                </q-carousel-slide>
-            </q-carousel>
+                    <q-carousel-slide 
+                    v-for="(page, PageID) in serverData.continue.pages" :key="PageID"
+                    :name="PageID" class="row q-col-gutter-sm">
+                        <router-link v-for="(serie, SerieNumber) in page" :key="SerieNumber" class="col-2" :to="userData.loggedIn.value ? `serie/${serie.SerieID}` : '../login'">
+                            <img :src="`serieImages/${serie.ImageID}.jpg`">
+                        </router-link>
+                    </q-carousel-slide>
+                </q-carousel>
+            </div>
+            <div>
+                <div class="title">New</div>
+                <q-carousel
+                    v-model="serverData.new.page"
+                    transition-prev="slide-right"
+                    transition-next="slide-left"
+                    swipeable
+                    animated
+                    control-color="white"
+                    arrows
+                    class="bg-dark"
+                >
+                    <q-carousel-slide 
+                    v-for="(page, PageID) in serverData.new.pages" :key="PageID"
+                    :name="PageID" class="row q-col-gutter-sm">
+                        <router-link v-for="(serie, SerieNumber) in page" :key="SerieNumber" class="col-2" :to="userData.loggedIn.value ? `serie/${serie.SerieID}` : '../login'">
+                            <img :src="`serieImages/${serie.ImageID}.jpg`">
+                        </router-link>
+                    </q-carousel-slide>
+                </q-carousel>
+            </div>
+            <div v-for="(genre, GenreName) in serverData.genres" :key="GenreName">
+                <div v-if="Object.keys(genre.pages).length">
+                    <div class="title">{{ GenreName }}</div>
+                    <q-carousel
+                        v-model="genre.page"
+                        transition-prev="slide-right"
+                        transition-next="slide-left"
+                        swipeable
+                        animated
+                        control-color="white"
+                        arrows
+                        class="bg-dark"
+                    >
+                    <q-carousel-slide 
+                    v-for="(page, PageID) in genre.pages" :key="PageID"
+                    :name="PageID" class="row q-col-gutter-sm">
+                        <router-link v-for="(serie, SerieNumber) in page" :key="SerieNumber" class="col-2" :to="userData.loggedIn.value ? `serie/${serie.SerieID}` : '../login'">
+                            <img :src="`serieImages/${serie.ImageID}.jpg`">
+                        </router-link>
+                    </q-carousel-slide>
+                </q-carousel>
+                </div>
             </div>
         </div>
     </div>
