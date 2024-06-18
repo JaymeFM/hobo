@@ -102,6 +102,7 @@ startWatchStream()
 
                         <div class="col-6 q-px-md">
                             <div class="title">{{ serie.table.serie[0].SerieTitel }}</div>
+                            <div class="description">{{ serie.table.serie[0].description }}</div>
                             <div class="genres row q-col-gutter-sm">
                                 <div v-for="(genre, genreNummer) in serie.table.genres" :key="genreNummer"  class="col-2">
                                     <div class="genre">{{ genre.GenreNaam }}</div>
@@ -206,5 +207,11 @@ startWatchStream()
     a {
         color: $primary;
     }
+}
+
+.description {
+    color: rgb(184, 184, 184);
+    font-size: 15px;
+    margin-bottom: 10px;
 }
 </style>
