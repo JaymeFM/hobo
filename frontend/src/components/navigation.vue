@@ -13,6 +13,9 @@
             </router-link>
         </div>
         <div class="col text-right">
+            <router-link v-if="userData.loggedIn.value ? (userData.data.value.Admin ? true : false) : false" class="navbutton" to="../admin">
+                <q-btn color="secondary" icon="shield" />
+            </router-link>
             <router-link v-if="userData.loggedIn.value ? (userData.data.value.ContentManager ? true : false) : false" class="navbutton" to="../contentManagment">
                 <q-btn color="secondary" icon="edit" />
             </router-link>

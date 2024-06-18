@@ -53,6 +53,18 @@
 
     getServerData()
 
+    function translateTime(timeInSeconds) {
+        if(timeInSeconds < 60) {
+            return `${timeInSeconds} Seconden`
+        }
+
+        if(Math.round(timeInSeconds / 60) < 2) {
+            return `${Math.round(timeInSeconds / 60)} Minuut`
+        }
+
+        return `${Math.round(timeInSeconds / 60)} Minuten`
+    }
+
 </script>
 
 <template>
@@ -78,7 +90,7 @@
                 </div>
                 <div class="col-3">
                     <p class="title">Duur</p>
-                    <p>{{ `${serie.Duur} Minuten` }}</p>
+                    <p>{{ translateTime(serie.duration_seconds) }}</p>
                 </div>
             </router-link>
         </div>
@@ -87,11 +99,11 @@
             <div class="container q-pa-md">
                 <p class="title">Favoriet Serie</p>
                 <p>Serie Naam : <router-link class="link" :to="`serie/${serverData.stats.favorite.SerieID}`">{{ serverData.stats.favorite.SerieTitel }}</router-link></p>
-                <p>Totaal gekeken : {{ serverData.stats.favorite.TotalDuration }} Minuten</p>
+                <p>Totaal gekeken : {{ translateTime(serverData.stats.favorite.TotalDuration) }}</p>
 
                 <p class="title">Globaal</p>
-                <p>Totaal gekeken : {{ serverData.stats.global.TotalWatchTime }} Minuten</p>
-                <p>Gemiddelde duur kijk sessie : {{ serverData.stats.global.AverageWatchSession }} Minuten</p>
+                <p>Totaal gekeken : {{ translateTime(serverData.stats.global.TotalWatchTime) }}</p>
+                <p>Gemiddelde duur kijk sessie : {{ translateTime(serverData.stats.global.AverageWatchSession ) }}</p>
             </div>
         </div>
     </div>

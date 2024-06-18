@@ -13,7 +13,9 @@ $database = new Database("localhost", "root", "", "hobo");
 
 // GET DATA
 function getHistory($connection, $KlantNr) {
-    $sql = "SELECT *
+    $sql = "SELECT 
+                *,
+                TIMESTAMPDIFF(SECOND, stream.d_start, stream.d_eind) AS duration_seconds
             FROM 
                 stream
             JOIN 
@@ -34,22 +36,25 @@ function getHistory($connection, $KlantNr) {
 }
 
 function getFavorite($connection, $KlantNr) {
-    $sql = "SELECT 
-                s.*,
-                SUM(a.Duur) AS TotalDuration
-            FROM 
-                stream str
-            JOIN 
-                aflevering a ON str.AflID = a.AfleveringID
-            JOIN 
-                seizoen sez ON a.SeizID = sez.SeizoenID
-            JOIN 
-                serie s ON sez.SerieID = s.SerieID
-            WHERE 
-                str.KlantID = :KlantNr
-            GROUP BY 
-                s.SerieID
-            ORDER BY 
+    $sql = "SELECT
+                sz.SerieID,
+                se.SerieTitel,
+                SUM(TIME_TO_SEC(TIMEDIFF(st.d_eind, st.d_start))) AS TotalDuration
+            FROM
+                stream st
+            JOIN
+                klant k ON st.KlantID = k.KlantNr
+            JOIN
+                aflevering a ON st.AflID = a.AfleveringID
+            JOIN
+                seizoen sz ON a.SeizID = sz.SeizoenID
+            JOIN
+                serie se ON sz.SerieID = se.SerieID
+            WHERE
+                k.KlantNr = :KlantNr
+            GROUP BY
+                sz.SerieID, se.SerieTitel
+            ORDER BY
                 TotalDuration DESC
             LIMIT 1;";
     $stmt = $connection->prepare($sql);
@@ -61,14 +66,14 @@ function getFavorite($connection, $KlantNr) {
 
 function getGlobal($connection, $KlantNr) {
     $sql = "SELECT 
-                SUM(a.Duur) AS TotalWatchTime,
-                AVG(a.Duur) AS AverageWatchSession
+                SUM(TIMESTAMPDIFF(SECOND, s.d_start, s.d_eind)) AS TotalWatchTime,
+                AVG(TIMESTAMPDIFF(SECOND, s.d_start, s.d_eind)) AS AverageWatchSession
             FROM 
                 stream s
             JOIN 
                 aflevering a ON s.AflID = a.AfleveringID
             WHERE 
-                s.KlantID = :KlantNr  -- Replace ? with the specific KlantNr
+                s.KlantID = :KlantNr
             GROUP BY 
                 s.KlantID;";
     $stmt = $connection->prepare($sql);

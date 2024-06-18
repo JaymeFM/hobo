@@ -1,6 +1,7 @@
 <script setup>
 import { useRoute } from 'vue-router';
 import { reactive, ref } from 'vue';
+import Cookies from 'js-cookie';
 
 const route = useRoute();
 const serieId = route.params.serieId;
@@ -53,9 +54,37 @@ function getThumbnail() {
     return `../serieImages/${imageId}.jpg`
 }
 
-console.log(serie.table)
+var watchStreamId = null;
+
+async function updateWatchStream() {
+    var fetchedData = await (await fetch(`http://localhost:8000/updateWatchStream.php`, {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({streamId: watchStreamId})
+    })).json();
+
+    console.log('Stream status', fetchedData)
+}
+
+async function startWatchStream() {
+    var fetchedData = await (await fetch(`http://localhost:8000/getWatchStream.php`, {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({email: Cookies.get('email'), password: Cookies.get('password'), serieId: serieId})
+    })).json();
+
+    watchStreamId = fetchedData.StreamID
+
+    setInterval(updateWatchStream, 5000);
+}
 
 run()
+startWatchStream()
+
 </script>
 
 <template>

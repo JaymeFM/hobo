@@ -7,6 +7,7 @@ import SearchView from '../views/SearchView.vue'
 import AccountView from '../views/accountView.vue'
 import HistoryView from '../views/HistoryView.vue'
 import ContentManagmentView from '../views/ContentManagmentView.vue'
+import AdminView from '../views/AdminView.vue'
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
@@ -54,6 +55,11 @@ const router = createRouter({
       path: '/contentManagment',
       name: 'contentManagment',
       component: ContentManagmentView
+    },
+    {
+      path: '/admin',
+      name: 'admin',
+      component: AdminView
     },
   ]
 })
