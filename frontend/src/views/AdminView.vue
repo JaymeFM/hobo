@@ -64,6 +64,7 @@
 
 <template>
     <div>
+        <div class="title">Admin User Managment</div>
         <q-input filled dark color="primary" squared v-model="searchQuery" @update:model-value="updateUsers" label="Search" class="q-mb-md"/>
         <div class="user q-pa-md q-mb-sm" v-for="(user, userNumber) in users.table" :key="userNumber">
             <div class="row q-col-gutter-sm items-center">
@@ -141,5 +142,9 @@
 
 .delete {
     background-color: $negative;
+}
+
+.title {
+    font-size: 30px;
 }
 </style>
