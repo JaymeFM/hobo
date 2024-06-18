@@ -42,14 +42,16 @@
     background-color: #1f1f1f;
     position: fixed;
     z-index: 99;
+    box-shadow: 0px 15px 5px rgba(0, 0, 0, 0.647);
 }
 
 img {
-    height: 40px;
+    height: 50px;
 }
 
 .navbutton {
     margin-left: 20px;
+    box-shadow: 0px 15px 5px rgb(0, 0, 0);
 }
 
 </style>
