@@ -256,7 +256,7 @@
 
 img {
     width: 100%;
-    max-height: 80%;
+    max-height: 100%;
     border-radius: 1vw;
     box-shadow: 2px 15px 5px rgba(0, 0, 0, 0.333);
 }
@@ -269,9 +269,4 @@ img {
     overflow: hidden;
 }
 
-@media only screen and (min-width: 768px) {
-    img{
-        width: 100%;
-    }
-}
 </style>
