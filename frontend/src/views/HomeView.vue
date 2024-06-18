@@ -153,7 +153,7 @@
             transition-next="slide-left"
             swipeable
             animated
-            control-color="white"
+            control-color="green"
             arrows
             class="bg-dark"
             navigation
@@ -251,11 +251,14 @@
 <style scoped>
 .title {
     font-size: 50px;
-    color: white;
+    color: #ffffff;
 }
 
 img {
     width: 100%;
+    max-height: 80%;
+    border-radius: 1vw;
+    box-shadow: 2px 15px 5px rgba(0, 0, 0, 0.333);
 }
 
 ::v-deep .q-carousel__slide {
@@ -266,4 +269,9 @@ img {
     overflow: hidden;
 }
 
+@media only screen and (min-width: 768px) {
+    img{
+        width: 100%;
+    }
+}
 </style>
