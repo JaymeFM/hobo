@@ -60,6 +60,11 @@ async function register() {
                     <label>Confirm Password</label>
                     <input v-model="userData.confirmPassword" placeholder="Geheim123" type="password">
                 </div>
+
+                <div class="privacy">
+                    <label>Mogen u gegevens gedeeld worden?</label><input type="checkbox">
+                </div>
+
                 <q-btn no-caps flat square class="submit" @click="register">Register</q-btn>
                 <label class="register"><RouterLink  to="/login">Login</RouterLink> instead.</label>
             </div>
@@ -147,6 +152,16 @@ input[type=email] {
 
 .error {
     color: red;
+}
+
+.privacy {
+    color: white;
+    display: flex;
+    justify-content: center;
+}
+
+.privacy > input {
+    margin-left: 10px;
 }
 
 @keyframes fadeInAnimation {
