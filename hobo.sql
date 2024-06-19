@@ -7650,7 +7650,7 @@ CREATE TABLE IF NOT EXISTS `klant` (
 
 -- Dumping data for table hobo.klant: ~1,018 rows (approximately)
 INSERT INTO `klant` (`KlantNr`, `AboID`, `Voornaam`, `Tussenvoegsel`, `Achternaam`, `Email`, `password`, `Genre`, `ContentManager`, `Admin`) VALUES
-	(10003, 1, 'mootje', '', '', 'jayme@gmail.com', 'test', 'Science Ficton', 1, 1),
+	(10003, 1, 'Jayme', '', '', 'jayme@gmail.com', 'test', 'Science Ficton', 1, 1),
 	(10004, 2, 'Marlijn', '', 'Horn', 'marlijnhorn@mail.com', '$2a$12$c2jXCtp5vtyznqBsaeJtYuq36PiTWafqVftB3tu0ZHK3Nque9Vzg2', 'Science Ficton', 0, 0),
 	(10005, 3, 'Madvie', '', 'Vleeming', 'madvievleeming@mail.com', '$2a$12$c2jXCtp5vtyznqBsaeJtYuq36PiTWafqVftB3tu0ZHK3Nque9Vzg2', 'Science Ficton', 0, 0),
 	(10006, 1, 'Willem Jan', '', 'Go', 'willem jango@mail.com', '$2a$12$c2jXCtp5vtyznqBsaeJtYuq36PiTWafqVftB3tu0ZHK3Nque9Vzg2', 'Science Ficton', 0, 0),
