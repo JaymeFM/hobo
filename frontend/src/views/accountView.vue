@@ -5,6 +5,7 @@ import Cookies from 'js-cookie';
 import { reactive, toRaw } from "vue";
 
 const userData = storeToRefs(userStore())
+const userInfo = reactive({table: {}})
 
 const newPasswordData = reactive({
     oldPassword: '',
@@ -17,6 +18,26 @@ function logout() {
     Cookies.remove('password')
     window.location="../login";
 }
+
+async function getInfo() {
+    var fetchedData = await (await fetch(`http://localhost:8000/getAccountPage.php`, {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({email: Cookies.get('email'), password: Cookies.get('password')})
+    })).json();
+
+    userInfo.table = fetchedData
+}
+
+async function setFavoriteGenre(genre) {
+    userInfo.table.favoriteGenre = genre
+}
+
+getInfo()
+
+
 </script>
 
 <template>
@@ -47,7 +68,8 @@ function logout() {
                 </div>
             </div>
             <div class="container q-pa-md q-mt-md">
-                <q-btn class="logout" @click="logout" no-caps flat square>Logout</q-btn>
+                <div class="title">Favorite Genre</div>
+                <q-btn v-for="(genre, genreNumber) in userInfo.table.genres" :key="genreNumber" class="genre q-mr-xs q-mb-xs" :class="{'favoriteGenre': genre.GenreNaam == userInfo.table.favoriteGenre}" @click="setFavoriteGenre(genre.GenreNaam)" no-caps flat square>{{genre.GenreNaam}}</q-btn>
             </div>
         </div>
         <div class="col-6">
@@ -56,11 +78,10 @@ function logout() {
                 <q-input filled dark color="primary" type="password" class="q-mt-sm" squared v-model="newPasswordData.oldPassword" label="Oud Wachtwoord" />
                 <q-input filled dark color="primary" type="password" class="q-mt-sm" squared v-model="newPasswordData.newPassword" label="Nieuw Wachtwoord" />
                 <q-input filled dark color="primary" type="password" class="q-mt-sm" squared v-model="newPasswordData.confirmPassword" label="Bevestig Nieuw Wachtwoord" />
-
             </div>
-        </div>
-        <div class="col-6">
-
+            <div class="container q-pa-md q-mt-md">
+                <q-btn class="logout" @click="logout" no-caps flat square>Logout</q-btn>
+            </div>
         </div>
     </div>
 </template>
@@ -101,5 +122,15 @@ function logout() {
     line-height: 100px;
     border-radius: 50%;
     font-size: 50px;
+}
+
+.genre {
+    padding: 10px;
+    background-color: $secondary;
+    color: white;
+}
+
+.favoriteGenre {
+    background-color: $primary;
 }
 </style>
